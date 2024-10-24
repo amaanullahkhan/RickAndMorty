@@ -31,11 +31,10 @@ extension HomeDIContainer: HomeFlowCoordinator.Dependencies {
         UINavigationController()
     }
     
-    func makeHomeScreen() -> UIViewController {
-        let homeVC = UIViewController()
-        homeVC.view.backgroundColor = .green
-        homeVC.navigationItem.title = "Home"
-        return homeVC
+    func makeCharactersScreen() -> CharactersViewController {
+        let viewModel = RMCharactersViewModel()
+        let viewController = CharactersViewController(viewModel: viewModel)
+        return viewController
     }
 }
 

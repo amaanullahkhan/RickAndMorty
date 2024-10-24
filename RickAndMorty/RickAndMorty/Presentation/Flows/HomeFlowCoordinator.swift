@@ -23,7 +23,7 @@ class HomeFlowCoordinator {
     private func showHomeScreen() {
         let window = dependencies.makeWindow()
         let navigationController = dependencies.makeNavigationController()
-        let homeScreen = dependencies.makeHomeScreen()
+        let homeScreen = dependencies.makeCharactersScreen()
         navigationController.setViewControllers([homeScreen], animated: false)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
@@ -32,7 +32,7 @@ class HomeFlowCoordinator {
     protocol Dependencies {
         func makeWindow() -> UIWindow
         func makeNavigationController() -> UINavigationController
-        func makeHomeScreen() -> UIViewController
+        func makeCharactersScreen() -> CharactersViewController
     }
     
 }
