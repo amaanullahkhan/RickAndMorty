@@ -12,6 +12,8 @@ import SwiftUI
 class HomeFlowCoordinator {
     
     private let dependencies: Dependencies
+    
+    lazy private var window: UIWindow = dependencies.makeWindow()
     lazy private var navigationController: UINavigationController = dependencies.makeNavigationController()
     
     init(dependencies: Dependencies) {
@@ -23,7 +25,6 @@ class HomeFlowCoordinator {
     }
     
     private func showHomeScreen() {
-        let window = dependencies.makeWindow()
         let homeScreen = dependencies.makeCharactersScreen(router: self)
         navigationController.setViewControllers([homeScreen], animated: false)
         window.rootViewController = navigationController
@@ -34,14 +35,14 @@ class HomeFlowCoordinator {
         func makeWindow() -> UIWindow
         func makeNavigationController() -> UINavigationController
         func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController
+        func makeCharacterDetailsScreen(character: Character) -> UIViewController
     }
     
 }
 
 extension HomeFlowCoordinator: CharactersViewModelRouter {
     func showCharacterDetailsScreen(for character: Character) {
-        let viewModel = RMCharacterDetailsViewModel(character: character)
-        let viewController = UIHostingController(rootView: CharacterDetailsView(viewModel: viewModel))
+        let viewController = dependencies.makeCharacterDetailsScreen(character: character)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class HomeDIContainer {
     
@@ -34,6 +35,13 @@ extension HomeDIContainer: HomeFlowCoordinator.Dependencies {
     func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController {
         let viewModel = RMCharactersViewModel(router: router)
         let viewController = CharactersViewController(viewModel: viewModel)
+        return viewController
+    }
+    
+    func makeCharacterDetailsScreen(character: Character) -> UIViewController {
+        let viewModel = RMCharacterDetailsViewModel(character: character)
+        let view = CharacterDetailsView(viewModel: viewModel)
+        let viewController = UIHostingController(rootView: view)
         return viewController
     }
 }
