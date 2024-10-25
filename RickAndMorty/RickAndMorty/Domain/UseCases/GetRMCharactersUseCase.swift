@@ -8,14 +8,14 @@
 import Foundation
 
 protocol GetCharactersUseCase {
-    func getCharacters() async throws -> [Character]
+    func getCharacters(for status: Status?) async throws -> [Character]
 }
 
 struct GetRMCharactersUseCase: GetCharactersUseCase {
     
     let repository: CharactersRepository
     
-    func getCharacters() async throws -> [Character] {
-        try await repository.fetchCharacters()
+    func getCharacters(for status: Status?) async throws -> [Character] {
+        try await repository.fetchCharacters(for: status)
     }
 }

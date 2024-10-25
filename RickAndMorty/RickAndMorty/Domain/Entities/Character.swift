@@ -21,14 +21,29 @@ struct Location: Decodable {
     let name: String
 }
 
-enum Status: String, Decodable {
+enum Status: String, CaseIterable, Identifiable, Decodable {
     
     case alive = "Alive"
     case dead = "Dead"
     case unknown
     
+    var id: String {
+        rawValue
+    }
+    
     var title: String {
         rawValue
+    }
+    
+    var key: String {
+        switch self {
+        case .alive:
+            "alive"
+        case .dead:
+            "dead"
+        case .unknown:
+            "unknown"
+        }
     }
 }
 

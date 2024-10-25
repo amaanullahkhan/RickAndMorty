@@ -13,7 +13,7 @@ enum NetworkRoute {
         
     enum RickAndMortyRoute: NetworkRequest {
                 
-        case characters
+        case characters(status: Status?, next: URL?)
         
         var method: HTTPMethod {
             switch self {
@@ -24,15 +24,24 @@ enum NetworkRoute {
         
         var route: URL {
             switch self {
-            case .characters:
-                NetworkAPI.URLs.charactersURL
+            case .characters(_, let next):
+                if let next {
+                    return next
+                }
+                return NetworkAPI.URLs.charactersURL
             }
         }
         
         var queryParams: Parameters? {
             switch self {
-            case .characters:
-                nil
+            case .characters(let status, let next):
+                guard next == nil else {
+                    return nil
+                }
+                if let status {
+                    return [URLQueryItem(name: Constant.status, value: status.key)]
+                }
+                return nil
             }
         }
         

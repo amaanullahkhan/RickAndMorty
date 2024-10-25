@@ -11,8 +11,8 @@ struct RickAndMortyCharactersRepository: CharactersRepository {
     
     let manager: NetworkRequestManager
     
-    func fetchCharacters() async throws -> [Character] {
-        let request = NetworkRoute.RickAndMortyRoute.characters
+    func fetchCharacters(for status: Status?) async throws -> [Character] {
+        let request = NetworkRoute.RickAndMortyRoute.characters(status: status, next: nil)
         let response: Response = try await manager.perform(request: request)
         return response.results
     }

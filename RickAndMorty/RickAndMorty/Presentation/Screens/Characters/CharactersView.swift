@@ -12,7 +12,7 @@ import Combine
 
 class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSource, UITableViewDelegate {
     
-    let viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     
     let cellIdentifier: String = "characterCell"
     
@@ -21,6 +21,13 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
         tView.delegate = self
         tView.dataSource = self
         return tView
+    }()
+    
+    lazy private var filterView: UIView! = {
+        let swiftUIView = FilterView(selectedStatus: $viewModel.statusFilter)
+        let view = UIHostingController(rootView: swiftUIView).view!
+        view.backgroundColor = .clear
+        return view
     }()
     
     private var cancellables = Set<AnyCancellable>()
@@ -37,12 +44,20 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     }
     
     private func setupLayouts() {
-        addSubview(tableView)
+        
+        let stackView = UIStackView(arrangedSubviews: [filterView, tableView])
+        stackView.axis = .vertical
+        addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        filterView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: topAnchor),
-                                     tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                                     tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                     tableView.trailingAnchor.constraint(equalTo: trailingAnchor)])
+        
+        NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+                                     stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                                     stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                                     stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     filterView.heightAnchor.constraint(equalToConstant: 80)])
     }
     
     private func bindViewModel() {

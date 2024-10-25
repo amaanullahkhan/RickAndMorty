@@ -13,6 +13,7 @@ enum NetworkAPI {
         static let api = "api"
         static let character = "character"
         static let page = "page"
+        static let status = "status"
     }
     
     enum URLs {
