@@ -11,7 +11,7 @@ import SwiftUI
 
 class CharactersView: UIView {
     
-    let viewModel: CharactersViewModel
+    let viewModel: any CharactersViewModel
     
     let cellIdentifier: String = "characterCell"
     
@@ -22,7 +22,7 @@ class CharactersView: UIView {
         return tView
     }()
     
-    init(viewModel: CharactersViewModel) {
+    init(viewModel: any CharactersViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         self.setupLayouts()
@@ -52,7 +52,7 @@ extension CharactersView: UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
         }
-        let viewModel = viewModel.characterViewModels[indexPath.row]
+        let viewModel: CharacterViewModel = viewModel.characterViewModels[indexPath.row]
         cell.contentConfiguration = UIHostingConfiguration {
             CharacterView(viewModel: viewModel)
         }

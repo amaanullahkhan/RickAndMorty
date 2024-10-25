@@ -10,9 +10,9 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     
-    let viewModel: CharactersViewModel
+    let viewModel: any CharactersViewModel
     
-    init(viewModel: CharactersViewModel) {
+    init(viewModel: any CharactersViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
