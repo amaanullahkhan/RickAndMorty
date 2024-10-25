@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class HomeFlowCoordinator {
     
     private let dependencies: Dependencies
+    lazy private var navigationController: UINavigationController = dependencies.makeNavigationController()
     
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
@@ -22,8 +24,7 @@ class HomeFlowCoordinator {
     
     private func showHomeScreen() {
         let window = dependencies.makeWindow()
-        let navigationController = dependencies.makeNavigationController()
-        let homeScreen = dependencies.makeCharactersScreen()
+        let homeScreen = dependencies.makeCharactersScreen(router: self)
         navigationController.setViewControllers([homeScreen], animated: false)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
@@ -32,7 +33,15 @@ class HomeFlowCoordinator {
     protocol Dependencies {
         func makeWindow() -> UIWindow
         func makeNavigationController() -> UINavigationController
-        func makeCharactersScreen() -> CharactersViewController
+        func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController
     }
     
+}
+
+extension HomeFlowCoordinator: CharactersViewModelRouter {
+    func showCharacterDetailsScreen(for character: Character) {
+        let viewModel = RMCharacterDetailsViewModel(character: character)
+        let viewController = UIHostingController(rootView: CharacterDetailsView(viewModel: viewModel))
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

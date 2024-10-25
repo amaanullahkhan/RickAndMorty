@@ -37,15 +37,35 @@ struct CharacterView: View {
         .padding(25)
         .background(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.gray, lineWidth: viewModel.isAlive == nil ? 1.5 : 0)
-                .fill(viewModel.isAlive == nil ? Color.clear : viewModel.isAlive! ? Color.red.opacity(0.2) : Color.blue.opacity(0.2))
+                .stroke(Color.gray.opacity(0.2), lineWidth: getStatusStrokeLine())
+                .fill(getStatusColor())
         )
         
+    }
+    
+    private func getStatusStrokeLine() -> CGFloat {
+        switch viewModel.status {
+        case .alive, .dead:
+            return 0
+        case .unknown:
+            return 1.5
+        }
+    }
+    
+    private func getStatusColor() -> some ShapeStyle {
+        switch viewModel.status {
+        case .alive:
+            return Color.blue.opacity(0.2)
+        case .dead:
+            return Color.red.opacity(0.2)
+        case .unknown:
+            return Color.clear
+        }
     }
 }
 
 struct CharacterViewPreview: PreviewProvider {
     static var previews: some View {
-        CharacterView(viewModel: RMCharacterViewModel(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf"))
+        CharacterView(viewModel: RMCharacterViewModel(character: Character(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .unknown, gender: .male, location: "Earth")))
     }
 }

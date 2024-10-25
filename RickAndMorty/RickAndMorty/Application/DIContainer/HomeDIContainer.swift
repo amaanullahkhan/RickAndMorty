@@ -31,8 +31,8 @@ extension HomeDIContainer: HomeFlowCoordinator.Dependencies {
         UINavigationController()
     }
     
-    func makeCharactersScreen() -> CharactersViewController {
-        let viewModel = RMCharactersViewModel()
+    func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController {
+        let viewModel = RMCharactersViewModel(router: router)
         let viewController = CharactersViewController(viewModel: viewModel)
         return viewController
     }

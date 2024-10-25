@@ -26,6 +26,7 @@
 		03CFB8C62CCA626C00E0AE19 /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8C52CCA626C00E0AE19 /* CharacterDetailsViewModel.swift */; };
 		03CFB8C92CCA628500E0AE19 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8C82CCA628500E0AE19 /* CharacterView.swift */; };
 		03CFB8CC2CCA62E700E0AE19 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8CB2CCA62E700E0AE19 /* CharacterViewModel.swift */; };
+		03CFB8D22CCAE1D300E0AE19 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8D12CCAE1D300E0AE19 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		03CFB8C52CCA626C00E0AE19 /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		03CFB8C82CCA628500E0AE19 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		03CFB8CB2CCA62E700E0AE19 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		03CFB8D12CCAE1D300E0AE19 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				0300FAA32CC9798F0026C5DE /* Application */,
 				0300FAA92CC979EC0026C5DE /* Presentation */,
 				0300FA7C2CC976970026C5DE /* Assets.xcassets */,
+				03CFB8CD2CCAE18700E0AE19 /* Domain */,
 				0300FA7E2CC976970026C5DE /* LaunchScreen.storyboard */,
 				0300FA812CC976970026C5DE /* Info.plist */,
 			);
@@ -219,6 +222,22 @@
 				03CFB8CB2CCA62E700E0AE19 /* CharacterViewModel.swift */,
 			);
 			path = Character;
+			sourceTree = "<group>";
+		};
+		03CFB8CD2CCAE18700E0AE19 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				03CFB8D02CCAE1BB00E0AE19 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		03CFB8D02CCAE1BB00E0AE19 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				03CFB8D12CCAE1D300E0AE19 /* Character.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +382,7 @@
 				0300FAAC2CC97A190026C5DE /* AppFlowCoordinator.swift in Sources */,
 				0300FA762CC976950026C5DE /* SceneDelegate.swift in Sources */,
 				0300FAA62CC979AF0026C5DE /* AppDIContainer.swift in Sources */,
+				03CFB8D22CCAE1D300E0AE19 /* Character.swift in Sources */,
 				03CFB8BE2CCA61AF00E0AE19 /* CharactersViewModel.swift in Sources */,
 				0300FAAE2CC97A230026C5DE /* HomeFlowCoordinator.swift in Sources */,
 			);

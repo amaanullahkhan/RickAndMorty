@@ -63,6 +63,6 @@ extension CharactersView: UITableViewDataSource {
 
 extension CharactersView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        viewModel.didSelectCharacterAt(index: indexPath.row)
     }
 }
