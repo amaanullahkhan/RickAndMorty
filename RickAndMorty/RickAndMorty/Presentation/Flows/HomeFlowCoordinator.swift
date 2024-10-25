@@ -34,7 +34,7 @@ class HomeFlowCoordinator {
     protocol Dependencies {
         func makeWindow() -> UIWindow
         func makeNavigationController() -> UINavigationController
-        func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController
+        func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController<RMCharactersViewModel>
         func makeCharacterDetailsScreen(character: Character) -> UIViewController
     }
     

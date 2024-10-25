@@ -7,51 +7,40 @@
 
 import Foundation
 
-struct Character {
+struct Character: Decodable {
+    
     let name: String
     let image: URL?
     let species: String
     var status: Status
     var gender: Gender
-    var location: String
+    var location: Location
 }
 
-enum Status {
+struct Location: Decodable {
+    let name: String
+}
+
+enum Status: String, Decodable {
     
-    case alive
-    case dead
+    case alive = "Alive"
+    case dead = "Dead"
     case unknown
     
     var title: String {
-        switch self {
-        case .alive:
-            return "Alive"
-        case .dead:
-            return "Dead"
-        case .unknown:
-            return "Unknown"
-        }
+        rawValue
     }
 }
 
 
-enum Gender {
+enum Gender: String, Decodable {
     
-    case female
-    case male
-    case genderless
+    case female = "Female"
+    case male = "Male"
+    case genderless = "Genderless"
     case unknown
     
     var title: String {
-        switch self {
-        case .female:
-            return "Female"
-        case .male:
-            return "Male"
-        case .genderless:
-            return "Genderless"
-        case .unknown:
-            return "Unknown"
-        }
+        rawValue
     }
 }

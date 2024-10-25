@@ -32,8 +32,10 @@ extension HomeDIContainer: HomeFlowCoordinator.Dependencies {
         UINavigationController()
     }
     
-    func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController {
-        let viewModel = RMCharactersViewModel(router: router)
+    func makeCharactersScreen(router: CharactersViewModelRouter) -> CharactersViewController<RMCharactersViewModel> {
+        let repository = RickAndMortyCharactersRepository(manager: URLSessionNetworkRequestManager())
+        let useCase = GetRMCharactersUseCase(repository: repository)
+        let viewModel = RMCharactersViewModel(router: router, useCase: useCase)
         let viewController = CharactersViewController(viewModel: viewModel)
         return viewController
     }

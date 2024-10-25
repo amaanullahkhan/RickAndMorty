@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class CharactersViewController: UIViewController {
+class CharactersViewController<ViewModel: CharactersViewModel>: UIViewController {
     
-    let viewModel: any CharactersViewModel
+    let viewModel: ViewModel
     
-    init(viewModel: any CharactersViewModel) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,6 +24,16 @@ class CharactersViewController: UIViewController {
     override func loadView() {
         view = CharactersView(viewModel: viewModel)
         title = viewModel.title
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
 }
 

@@ -34,6 +34,6 @@ extension RMCharacterDetailsViewModel {
         species = character.species
         status = character.status
         gender = character.gender
-        location = character.location
+        location = character.location.name
     }
 }

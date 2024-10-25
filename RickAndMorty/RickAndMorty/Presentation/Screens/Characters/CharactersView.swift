@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 import SwiftUI
+import Combine
 
-class CharactersView: UIView {
+class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSource, UITableViewDelegate {
     
-    let viewModel: any CharactersViewModel
+    let viewModel: ViewModel
     
     let cellIdentifier: String = "characterCell"
     
@@ -22,10 +23,13 @@ class CharactersView: UIView {
         return tView
     }()
     
-    init(viewModel: any CharactersViewModel) {
+    private var cancellables = Set<AnyCancellable>()
+    
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         self.setupLayouts()
+        self.bindViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -40,9 +44,16 @@ class CharactersView: UIView {
                                      tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
                                      tableView.trailingAnchor.constraint(equalTo: trailingAnchor)])
     }
-}
-
-extension CharactersView: UITableViewDataSource {
+    
+    private func bindViewModel() {
+        viewModel.characterViewModelsPublisher
+            .receive(on: RunLoop.main)
+            .sink { [unowned tableView] _ in
+                tableView.reloadData()
+        }
+        .store(in: &cancellables)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.characterViewModels.count
     }
@@ -59,9 +70,7 @@ extension CharactersView: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-}
-
-extension CharactersView: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectCharacterAt(index: indexPath.row)
     }

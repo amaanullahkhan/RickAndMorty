@@ -64,8 +64,8 @@ struct CharacterView: View {
     }
 }
 
-struct CharacterViewPreview: PreviewProvider {
-    static var previews: some View {
-        CharacterView(viewModel: RMCharacterViewModel(character: Character(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .unknown, gender: .male, location: "Earth")))
-    }
-}
+//struct CharacterViewPreview: PreviewProvider {
+//    static var previews: some View {
+//        CharacterView(viewModel: RMCharacterViewModel(character: Character(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .unknown, gender: .male, location: "Earth")))
+//    }
+//}

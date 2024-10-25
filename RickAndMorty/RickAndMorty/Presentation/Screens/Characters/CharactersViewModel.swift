@@ -7,12 +7,16 @@
 
 import Foundation
 
-protocol CharactersViewModel {
+protocol CharactersViewModel: ObservableObject {
     
     associatedtype ChildViewModel: CharacterViewModel
     
     var title: String { get }
     var characterViewModels: [ChildViewModel] { get }
+    var characterViewModelsPublisher: Published<[ChildViewModel]>.Publisher { get }
+    
+    func viewDidLoad()
+    func viewWillAppear()
     
     func didSelectCharacterAt(index: Int)
 }
@@ -21,19 +25,38 @@ protocol CharactersViewModelRouter {
     func showCharacterDetailsScreen(for character: Character)
 }
 
-struct RMCharactersViewModel: CharactersViewModel {
+class RMCharactersViewModel: CharactersViewModel {
     
     var title: String = "Characters"
-    var characterViewModels: [RMCharacterViewModel] = [RMCharacterViewModel(character: Character(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .alive, gender: .male, location: "Earth")),
-                                                     RMCharacterViewModel(character: Character(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .dead, gender: .male, location: "Earth")),
-                                                     RMCharacterViewModel(character: Character(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .unknown, gender: .male, location: "Earth"))]
+    
+    @Published
+    var characterViewModels: [RMCharacterViewModel] = []
+    var characterViewModelsPublisher: Published<[ChildViewModel]>.Publisher { $characterViewModels }
+    
+    let useCase: GetCharactersUseCase
     let router: CharactersViewModelRouter
     
-    init(router: CharactersViewModelRouter) {
+    init(router: CharactersViewModelRouter, useCase: GetCharactersUseCase) {
         self.router = router
+        self.useCase = useCase
     }
     
     func didSelectCharacterAt(index: Int) {
         router.showCharacterDetailsScreen(for: characterViewModels[index].character)
+    }
+    
+    func viewDidLoad() {
+        Task { @MainActor in
+            do {
+                let characters = try await useCase.getCharacters()
+                characterViewModels = characters.map { RMCharacterViewModel(character: $0) }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func viewWillAppear() {
+        
     }
 }

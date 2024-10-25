@@ -18,6 +18,15 @@
 		0300FAA82CC979BA0026C5DE /* HomeDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0300FAA72CC979BA0026C5DE /* HomeDIContainer.swift */; };
 		0300FAAC2CC97A190026C5DE /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0300FAAB2CC97A190026C5DE /* AppFlowCoordinator.swift */; };
 		0300FAAE2CC97A230026C5DE /* HomeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0300FAAD2CC97A230026C5DE /* HomeFlowCoordinator.swift */; };
+		03699A0A2CCBA40100ECE61C /* GetRMCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A092CCBA40100ECE61C /* GetRMCharactersUseCase.swift */; };
+		03699A0C2CCBA46D00ECE61C /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A0B2CCBA46D00ECE61C /* CharactersRepository.swift */; };
+		03699A132CCBA52E00ECE61C /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A0D2CCBA52D00ECE61C /* NetworkRequestManager.swift */; };
+		03699A142CCBA52E00ECE61C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A0E2CCBA52D00ECE61C /* NetworkError.swift */; };
+		03699A152CCBA52E00ECE61C /* NetworkRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A0F2CCBA52D00ECE61C /* NetworkRoute.swift */; };
+		03699A162CCBA52E00ECE61C /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A102CCBA52D00ECE61C /* NetworkRequest.swift */; };
+		03699A172CCBA52E00ECE61C /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A112CCBA52D00ECE61C /* NetworkAPI.swift */; };
+		03699A1A2CCBA7AE00ECE61C /* RickAndMortyCharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A192CCBA7AE00ECE61C /* RickAndMortyCharactersRepository.swift */; };
+		03699A1D2CCBAD2A00ECE61C /* LocalizableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A1C2CCBAD2A00ECE61C /* LocalizableString.swift */; };
 		03CFB8BA2CCA60E500E0AE19 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8B92CCA60E500E0AE19 /* CharactersViewController.swift */; };
 		03CFB8BC2CCA61A900E0AE19 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8BB2CCA61A900E0AE19 /* CharactersView.swift */; };
 		03CFB8BE2CCA61AF00E0AE19 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8BD2CCA61AF00E0AE19 /* CharactersViewModel.swift */; };
@@ -62,6 +71,15 @@
 		0300FAA72CC979BA0026C5DE /* HomeDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDIContainer.swift; sourceTree = "<group>"; };
 		0300FAAB2CC97A190026C5DE /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		0300FAAD2CC97A230026C5DE /* HomeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowCoordinator.swift; sourceTree = "<group>"; };
+		03699A092CCBA40100ECE61C /* GetRMCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRMCharactersUseCase.swift; sourceTree = "<group>"; };
+		03699A0B2CCBA46D00ECE61C /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
+		03699A0D2CCBA52D00ECE61C /* NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
+		03699A0E2CCBA52D00ECE61C /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		03699A0F2CCBA52D00ECE61C /* NetworkRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRoute.swift; sourceTree = "<group>"; };
+		03699A102CCBA52D00ECE61C /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		03699A112CCBA52D00ECE61C /* NetworkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
+		03699A192CCBA7AE00ECE61C /* RickAndMortyCharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCharactersRepository.swift; sourceTree = "<group>"; };
+		03699A1C2CCBAD2A00ECE61C /* LocalizableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableString.swift; sourceTree = "<group>"; };
 		03CFB8B92CCA60E500E0AE19 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		03CFB8BB2CCA61A900E0AE19 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		03CFB8BD2CCA61AF00E0AE19 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
@@ -123,8 +141,11 @@
 			children = (
 				0300FAA32CC9798F0026C5DE /* Application */,
 				0300FAA92CC979EC0026C5DE /* Presentation */,
-				0300FA7C2CC976970026C5DE /* Assets.xcassets */,
 				03CFB8CD2CCAE18700E0AE19 /* Domain */,
+				03699A052CCBA35700ECE61C /* Data */,
+				03699A062CCBA36E00ECE61C /* Infrastructure */,
+				03699A1B2CCBAD0C00ECE61C /* Common */,
+				0300FA7C2CC976970026C5DE /* Assets.xcassets */,
 				0300FA7E2CC976970026C5DE /* LaunchScreen.storyboard */,
 				0300FA812CC976970026C5DE /* Info.plist */,
 			);
@@ -185,6 +206,58 @@
 			path = Flows;
 			sourceTree = "<group>";
 		};
+		03699A052CCBA35700ECE61C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				03699A192CCBA7AE00ECE61C /* RickAndMortyCharactersRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		03699A062CCBA36E00ECE61C /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				03699A112CCBA52D00ECE61C /* NetworkAPI.swift */,
+				03699A0E2CCBA52D00ECE61C /* NetworkError.swift */,
+				03699A102CCBA52D00ECE61C /* NetworkRequest.swift */,
+				03699A0D2CCBA52D00ECE61C /* NetworkRequestManager.swift */,
+				03699A1E2CCBAE8F00ECE61C /* Routes */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		03699A072CCBA3C600ECE61C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				03699A092CCBA40100ECE61C /* GetRMCharactersUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		03699A082CCBA3D000ECE61C /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				03699A0B2CCBA46D00ECE61C /* CharactersRepository.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		03699A1B2CCBAD0C00ECE61C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				03699A1C2CCBAD2A00ECE61C /* LocalizableString.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		03699A1E2CCBAE8F00ECE61C /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				03699A0F2CCBA52D00ECE61C /* NetworkRoute.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
 		03CFB8B82CCA60B000E0AE19 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				03CFB8D02CCAE1BB00E0AE19 /* Entities */,
+				03699A072CCBA3C600ECE61C /* UseCases */,
+				03699A082CCBA3D000ECE61C /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -370,11 +445,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03699A0C2CCBA46D00ECE61C /* CharactersRepository.swift in Sources */,
+				03699A1A2CCBA7AE00ECE61C /* RickAndMortyCharactersRepository.swift in Sources */,
 				03CFB8BA2CCA60E500E0AE19 /* CharactersViewController.swift in Sources */,
+				03699A152CCBA52E00ECE61C /* NetworkRoute.swift in Sources */,
 				0300FA742CC976950026C5DE /* AppDelegate.swift in Sources */,
 				03CFB8BC2CCA61A900E0AE19 /* CharactersView.swift in Sources */,
 				03CFB8C22CCA623B00E0AE19 /* CharacterDetailsView.swift in Sources */,
 				03CFB8C92CCA628500E0AE19 /* CharacterView.swift in Sources */,
+				03699A162CCBA52E00ECE61C /* NetworkRequest.swift in Sources */,
 				03CFB8C42CCA624E00E0AE19 /* CharacterDetailsViewController.swift in Sources */,
 				03CFB8C62CCA626C00E0AE19 /* CharacterDetailsViewModel.swift in Sources */,
 				0300FAA82CC979BA0026C5DE /* HomeDIContainer.swift in Sources */,
@@ -384,7 +463,12 @@
 				0300FAA62CC979AF0026C5DE /* AppDIContainer.swift in Sources */,
 				03CFB8D22CCAE1D300E0AE19 /* Character.swift in Sources */,
 				03CFB8BE2CCA61AF00E0AE19 /* CharactersViewModel.swift in Sources */,
+				03699A172CCBA52E00ECE61C /* NetworkAPI.swift in Sources */,
+				03699A1D2CCBAD2A00ECE61C /* LocalizableString.swift in Sources */,
 				0300FAAE2CC97A230026C5DE /* HomeFlowCoordinator.swift in Sources */,
+				03699A132CCBA52E00ECE61C /* NetworkRequestManager.swift in Sources */,
+				03699A0A2CCBA40100ECE61C /* GetRMCharactersUseCase.swift in Sources */,
+				03699A142CCBA52E00ECE61C /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
