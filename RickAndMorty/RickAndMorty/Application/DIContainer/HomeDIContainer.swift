@@ -44,7 +44,7 @@ extension HomeDIContainer: HomeFlowCoordinator.Dependencies {
     func makeCharacterDetailsScreen(character: Character) -> UIViewController {
         let viewModel = RMCharacterDetailsViewModel(character: character)
         let view = CharacterDetailsView(viewModel: viewModel)
-        let viewController = UIHostingController(rootView: view)
+        let viewController = CharacterDetailsViewController(rootView: view)
         return viewController
     }
 }

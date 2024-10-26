@@ -29,6 +29,8 @@ class CharactersViewController<ViewModel: CharactersViewModel>: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward.circle.fill"), style: .plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

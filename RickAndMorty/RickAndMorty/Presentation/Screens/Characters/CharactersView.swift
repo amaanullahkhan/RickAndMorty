@@ -13,21 +13,13 @@ import Combine
 class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSource, UITableViewDelegate {
     
     @ObservedObject var viewModel: ViewModel
-    
-    let cellIdentifier: String = "characterCell"
-    
+        
     lazy private var tableView = {
        let tView = UITableView()
         tView.delegate = self
         tView.dataSource = self
+        tView.separatorStyle = .none
         return tView
-    }()
-    
-    lazy private var filterView: UIView! = {
-        let swiftUIView = FilterView(selectedStatus: $viewModel.statusFilter)
-        let view = UIHostingController(rootView: swiftUIView).view!
-        view.backgroundColor = .clear
-        return view
     }()
     
     private var cancellables = Set<AnyCancellable>()
@@ -35,6 +27,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
+        self.setup()
         self.setupLayouts()
         self.bindViewModel()
     }
@@ -43,21 +36,18 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setup() {
+
+    }
+    
     private func setupLayouts() {
         
-        let stackView = UIStackView(arrangedSubviews: [filterView, tableView])
-        stackView.axis = .vertical
-        addSubview(stackView)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        filterView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-                                     stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                                     stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                     stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                     filterView.heightAnchor.constraint(equalToConstant: 80)])
+        NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: topAnchor),
+                                     tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                                     tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                                     tableView.trailingAnchor.constraint(equalTo: trailingAnchor)])
     }
     
     private func bindViewModel() {
@@ -69,14 +59,25 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
         .store(in: &cancellables)
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
+        if header == nil {
+            header = UITableViewHeaderFooterView(reuseIdentifier: "header")
+        }
+        header?.contentConfiguration = UIHostingConfiguration {
+            FilterView(selectedStatus: $viewModel.statusFilter)
+        }
+        return header
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.characterViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
         let viewModel: CharacterViewModel = viewModel.characterViewModels[indexPath.row]
         cell.contentConfiguration = UIHostingConfiguration {

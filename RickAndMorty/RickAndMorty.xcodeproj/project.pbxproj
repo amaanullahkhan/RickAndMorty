@@ -184,8 +184,8 @@
 		0300FAA32CC9798F0026C5DE /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				0300FA752CC976950026C5DE /* SceneDelegate.swift */,
 				0300FA732CC976950026C5DE /* AppDelegate.swift */,
+				0300FA752CC976950026C5DE /* SceneDelegate.swift */,
 				0300FAA42CC9799C0026C5DE /* DIContainer */,
 			);
 			path = Application;
@@ -205,6 +205,7 @@
 			children = (
 				03CFB8B82CCA60B000E0AE19 /* Screens */,
 				0300FAAA2CC97A050026C5DE /* Flows */,
+				03699A2D2CCCFD8A00ECE61C /* Extension */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -277,6 +278,13 @@
 				03699A222CCBE28700ECE61C /* FilterView.swift */,
 			);
 			path = FilterView;
+			sourceTree = "<group>";
+		};
+		03699A2D2CCCFD8A00ECE61C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		03CFB8B82CCA60B000E0AE19 /* Screens */ = {

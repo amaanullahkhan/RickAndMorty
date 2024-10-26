@@ -21,13 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if window == nil {
             window = UIWindow(windowScene: windowScene)
         }
-        
-        if let window {
-            appDIContainer = AppDIContainer(window: window)
-        }
+
+        appDIContainer = AppDIContainer(window: window!)
+        setAppearance()
         
         let appFlow = appDIContainer.makeAppFlowCoordinator()
         appFlow.start()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -56,6 +56,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    private func setAppearance() {
+        
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.tintColor = Color.black.uiColor
+        navBarAppearance.shadowImage = UIImage()
+        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.black.uiColor]
+        navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.black.uiColor]
+        navBarAppearance.prefersLargeTitles = true
+        
+//        var image = UIImage(systemName: "arrow.backward.circle.fill") // fix indicator color
+//        image = image?.withTintColor(Color.white.uiColor)
+//        navBarAppearance.backIndicatorImage = image
+//        navBarAppearance.backIndicatorTransitionMaskImage = image
     }
 
 

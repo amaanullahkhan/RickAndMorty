@@ -6,13 +6,13 @@
 //
 
 import UIKit
+import SwiftUI
 
-class CharacterDetailsViewController: UIViewController {
+class CharacterDetailsViewController: UIHostingController<CharacterDetailsView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
 
