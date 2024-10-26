@@ -18,11 +18,13 @@ struct FilterView: View {
                     selectedStatus = status == selectedStatus ? nil : status
                 } label: {
                     Text(status.title)
+                        .font(.subheadline)
                         .foregroundStyle(selectedStatus == status ? Color.white.swiftUIColor : Color.black.swiftUIColor)
-                        .padding()
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
                         .background(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color.blueHaze.swiftUIColor, lineWidth: 1.5)
+                            RoundedRectangle(cornerRadius: 100)
+                                .stroke(Color.blueHaze.swiftUIColor, lineWidth: 2)
                                 .fill(selectedStatus == status ? Color.black.swiftUIColor : Color.white.swiftUIColor)
                         )
                 }

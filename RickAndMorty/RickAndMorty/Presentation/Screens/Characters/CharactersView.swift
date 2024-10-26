@@ -19,6 +19,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
         tView.delegate = self
         tView.dataSource = self
         tView.separatorStyle = .none
+        tView.sectionHeaderTopPadding = 0
         return tView
     }()
     
@@ -37,7 +38,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     }
     
     private func setup() {
-
+        
     }
     
     private func setupLayouts() {
@@ -66,7 +67,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
         }
         header?.contentConfiguration = UIHostingConfiguration {
             FilterView(selectedStatus: $viewModel.statusFilter)
-        }
+        }    
         return header
     }
     
