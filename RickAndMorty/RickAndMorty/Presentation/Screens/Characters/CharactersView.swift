@@ -42,7 +42,6 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     }
     
     private func setupLayouts() {
-        
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: topAnchor),

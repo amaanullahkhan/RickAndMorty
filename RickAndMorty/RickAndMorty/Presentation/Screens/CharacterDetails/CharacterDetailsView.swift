@@ -25,17 +25,21 @@ struct CharacterDetailsView: View {
                 .clipShape(
                     RoundedRectangle(cornerRadius: 50)
                 )
-                .ignoresSafeArea(edges: .top)
                 
-                VStack {
+                VStack(spacing: 0) {
                     
-                    HStack {
+                    HStack(alignment: .top) {
                         Text(viewModel.name)
+                            .font(.title)
+                            .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        
                         Text(viewModel.status.title)
+                            .font(.subheadline)
                             .foregroundStyle(Color.black.swiftUIColor)
                             .lineLimit(1)
-                            .padding()
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 2)
                             .background(Color.deepSkyBlue.swiftUIColor)
                             .clipShape(Capsule())
                     }
@@ -44,24 +48,30 @@ struct CharacterDetailsView: View {
                         Text(viewModel.species)
                             .foregroundStyle(Color.jacarta.swiftUIColor)
                         Circle()
-                            .frame(width: 6, height: 6)
+                            .frame(width: 4, height: 4)
                         Text(viewModel.gender.title)
                             .foregroundStyle(Color.kimberly.swiftUIColor)
                         Spacer()
                     }
                     
                     HStack {
-                        Text("Location: ")
+                        Text("Location : ")
+                            .lineLimit(1)
+                            .fontWeight(.semibold)
                             .foregroundStyle(Color.black.swiftUIColor)
                         Text(viewModel.location)
+                            .fontWeight(.medium)
+                            .lineLimit(2)
                             .foregroundStyle(Color.jacarta.swiftUIColor)
                         Spacer()
                     }
+                    .padding(.top)
                     
                 }
                 .padding()
             }
         }
+        .ignoresSafeArea(edges: .top)
     }
 }
 
