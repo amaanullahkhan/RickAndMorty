@@ -32,7 +32,7 @@ protocol CharactersViewModelRouter {
 
 class RMCharactersViewModel: CharactersViewModel {
     
-    var title: String = "Characters"
+    var title: String = LocalizedString.characters
     
     @Published 
     var statusFilter: Status?

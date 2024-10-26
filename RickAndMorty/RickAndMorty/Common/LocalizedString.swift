@@ -13,9 +13,13 @@ private extension String {
     }
 }
 
-enum Localizable {
+enum LocalizedString {
     
     static let characters = "characters".localised
     static let retry = "retry".localised
     static let somethingWentWrong = "something_went_wrong".localised
+    
+    static let alive = "alive".localised
+    static let dead = "dead".localised
+    static let unknown = "unknown".localised
 }

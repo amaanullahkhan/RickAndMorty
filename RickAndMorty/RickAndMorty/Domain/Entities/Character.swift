@@ -32,7 +32,14 @@ enum Status: String, CaseIterable, Identifiable, Decodable {
     }
     
     var title: String {
-        rawValue
+        switch self {
+        case .alive:
+            LocalizedString.alive
+        case .dead:
+            LocalizedString.dead
+        case .unknown:
+            LocalizedString.unknown
+        }
     }
     
     var key: String {
