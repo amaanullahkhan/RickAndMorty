@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 class AppDIContainer {
     
     private let window: UIWindow

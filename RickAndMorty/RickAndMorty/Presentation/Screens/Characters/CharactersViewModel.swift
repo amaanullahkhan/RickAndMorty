@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 protocol CharactersViewModel: ObservableObject {
     
     associatedtype ChildViewModel: CharacterViewModel
@@ -21,6 +22,8 @@ protocol CharactersViewModel: ObservableObject {
     func viewWillAppear()
     
     func didSelectCharacterAt(index: Int)
+    func willDisplayCharacterAt(index: Int)
+
 }
 
 protocol CharactersViewModelRouter {
@@ -32,11 +35,13 @@ class RMCharactersViewModel: CharactersViewModel {
     var title: String = "Characters"
     
     @Published 
-    var statusFilter: Status? = .alive
+    var statusFilter: Status?
+    var nextPage: URL?
     
     @Published
     var characterViewModels: [RMCharacterViewModel] = []
     var characterViewModelsPublisher: Published<[ChildViewModel]>.Publisher { $characterViewModels }
+    
     
     let useCase: GetCharactersUseCase
     let router: CharactersViewModelRouter
@@ -50,6 +55,13 @@ class RMCharactersViewModel: CharactersViewModel {
     
     func didSelectCharacterAt(index: Int) {
         router.showCharacterDetailsScreen(for: characterViewModels[index].character)
+    }
+    
+    func willDisplayCharacterAt(index: Int) {
+        guard index == characterViewModels.count - 5 else {
+            return
+        }
+        getCharactersNextPage()
     }
     
     func viewDidLoad() {
@@ -71,8 +83,22 @@ class RMCharactersViewModel: CharactersViewModel {
     private func getCharacters(status: Status?) {
         Task { @MainActor in
             do {
-                let characters = try await useCase.getCharacters(for: status)
-                characterViewModels = characters.map { RMCharacterViewModel(character: $0) }
+                let charactersPage = try await useCase.getCharacters(for: status, nextPage: nil)
+                nextPage = charactersPage.pageInfo.next
+                characterViewModels = charactersPage.characters.map { RMCharacterViewModel(character: $0) }
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    private func getCharactersNextPage() {
+        guard let nextPage else { return }
+        Task { @MainActor in
+            do {
+                let charactersPage = try await useCase.getCharacters(for: statusFilter, nextPage: nextPage)
+                self.nextPage = charactersPage.pageInfo.next
+                characterViewModels += charactersPage.characters.map { RMCharacterViewModel(character: $0) }
             } catch {
                 print(error)
             }
