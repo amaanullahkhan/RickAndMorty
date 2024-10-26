@@ -15,7 +15,7 @@ extension NetworkError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .somethingWentWrong:
-            Localizable.somethingWentWrong
+            LocalizedString.somethingWentWrong
         }
     }
 }

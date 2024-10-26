@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 import SwiftUI
 
-enum RMColor: String {
+enum Color: String {
     
     case black
     case blueHaze
+    case clear
+    case deepSkyBlue
     case jacarta
     case kimberly
     case lavender
@@ -24,8 +26,8 @@ enum RMColor: String {
         return UIColor(named: rawValue)!
     }
     
-    var swiftUIColor: Color {
-        return Color(rawValue)
+    var swiftUIColor: SwiftUI.Color {
+        return SwiftUI.Color(rawValue)
     }
 
 }

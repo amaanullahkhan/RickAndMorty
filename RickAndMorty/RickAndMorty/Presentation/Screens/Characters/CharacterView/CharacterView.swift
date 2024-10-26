@@ -16,17 +16,19 @@ struct CharacterView: View {
             AsyncImage(url: viewModel.image) { image in
                 image.resizable()
             } placeholder: {
-                Color.gray
+                Color.kimberly.swiftUIColor
             }
             .frame(width: 100, height: 100)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack {
                 Text(viewModel.name)
+                    .foregroundStyle(Color.black.swiftUIColor)
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(1)
                 Text(viewModel.species)
+                    .foregroundStyle(Color.jacarta.swiftUIColor)
                     .font(.subheadline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(1)
@@ -37,7 +39,7 @@ struct CharacterView: View {
         .padding(25)
         .background(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.gray.opacity(0.2), lineWidth: getStatusStrokeLine())
+                .stroke(Color.selago.swiftUIColor, lineWidth: getStatusStrokeLine())
                 .fill(getStatusColor())
         )
         
@@ -55,11 +57,11 @@ struct CharacterView: View {
     private func getStatusColor() -> some ShapeStyle {
         switch viewModel.status {
         case .alive:
-            return Color.blue.opacity(0.2)
+            return Color.lavender.swiftUIColor
         case .dead:
-            return Color.red.opacity(0.2)
+            return Color.mistyRose.swiftUIColor
         case .unknown:
-            return Color.clear
+            return Color.clear.swiftUIColor
         }
     }
 }

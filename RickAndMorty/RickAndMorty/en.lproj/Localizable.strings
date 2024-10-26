@@ -9,3 +9,6 @@
 "characters" = "Characters";
 "retry" = "Retry";
 "something_went_wrong" = "Something went wrong";
+"alive" = "Alive";
+"dead" = "Dead";
+"unknown" = "unknown";

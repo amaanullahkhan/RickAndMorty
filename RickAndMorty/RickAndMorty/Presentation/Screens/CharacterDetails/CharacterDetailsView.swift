@@ -19,7 +19,7 @@ struct CharacterDetailsView: View {
                     image
                     .resizable()
                 }, placeholder: {
-                    Color.gray
+                    Color.kimberly.swiftUIColor
                 })
                 .frame(height: proxy.size.height/2)
                 .clipShape(
@@ -33,25 +33,28 @@ struct CharacterDetailsView: View {
                         Text(viewModel.name)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(viewModel.status.title)
+                            .foregroundStyle(Color.black.swiftUIColor)
                             .lineLimit(1)
                             .padding()
-                            .background(Color.blue)
+                            .background(Color.deepSkyBlue.swiftUIColor)
                             .clipShape(Capsule())
                     }
                     
                     HStack(spacing: 12) {
                         Text(viewModel.species)
+                            .foregroundStyle(Color.jacarta.swiftUIColor)
                         Circle()
                             .frame(width: 6, height: 6)
                         Text(viewModel.gender.title)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(Color.kimberly.swiftUIColor)
                         Spacer()
                     }
                     
                     HStack {
                         Text("Location: ")
+                            .foregroundStyle(Color.black.swiftUIColor)
                         Text(viewModel.location)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(Color.jacarta.swiftUIColor)
                         Spacer()
                     }
                     

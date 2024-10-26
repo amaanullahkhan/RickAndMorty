@@ -15,16 +15,15 @@ struct FilterView: View {
         HStack {
             ForEach(Status.allCases) { status in
                 Button {
-                    print(selectedStatus)
                     selectedStatus = status == selectedStatus ? nil : status
                 } label: {
                     Text(status.title)
-                        .foregroundStyle(selectedStatus == status ? Color.white : .black)
+                        .foregroundStyle(selectedStatus == status ? Color.white.swiftUIColor : Color.black.swiftUIColor)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color.gray, lineWidth: 1.5)
-                                .fill(selectedStatus == status ? Color.black : .white)
+                                .stroke(Color.blueHaze.swiftUIColor, lineWidth: 1.5)
+                                .fill(selectedStatus == status ? Color.black.swiftUIColor : Color.white.swiftUIColor)
                         )
                 }
 
