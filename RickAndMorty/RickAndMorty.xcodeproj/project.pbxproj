@@ -32,6 +32,8 @@
 		03699A282CCCD77E00ECE61C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03699A262CCCD77E00ECE61C /* Localizable.strings */; };
 		03699A2A2CCCDAEC00ECE61C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03699A292CCCDAEC00ECE61C /* Colors.xcassets */; };
 		03699A2C2CCCDE6900ECE61C /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A2B2CCCDE6900ECE61C /* ColorConstant.swift */; };
+		03699A2F2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A2E2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift */; };
+		03699A322CCE2DF500ECE61C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A312CCE2DF500ECE61C /* BackButton.swift */; };
 		03CFB8BA2CCA60E500E0AE19 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8B92CCA60E500E0AE19 /* CharactersViewController.swift */; };
 		03CFB8BC2CCA61A900E0AE19 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8BB2CCA61A900E0AE19 /* CharactersView.swift */; };
 		03CFB8BE2CCA61AF00E0AE19 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFB8BD2CCA61AF00E0AE19 /* CharactersViewModel.swift */; };
@@ -90,6 +92,8 @@
 		03699A272CCCD77E00ECE61C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		03699A292CCCDAEC00ECE61C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		03699A2B2CCCDE6900ECE61C /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
+		03699A2E2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+GestureRecognizer.swift"; sourceTree = "<group>"; };
+		03699A312CCE2DF500ECE61C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		03CFB8B92CCA60E500E0AE19 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		03CFB8BB2CCA61A900E0AE19 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		03CFB8BD2CCA61AF00E0AE19 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
@@ -283,13 +287,23 @@
 		03699A2D2CCCFD8A00ECE61C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				03699A2E2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		03699A302CCE2DEB00ECE61C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				03699A312CCE2DF500ECE61C /* BackButton.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		03CFB8B82CCA60B000E0AE19 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03699A302CCE2DEB00ECE61C /* Controls */,
 				03CFB8BF2CCA61E300E0AE19 /* Characters */,
 				03CFB8C02CCA61FC00E0AE19 /* CharacterDetails */,
 			);
@@ -497,8 +511,10 @@
 				0300FA762CC976950026C5DE /* SceneDelegate.swift in Sources */,
 				0300FAA62CC979AF0026C5DE /* AppDIContainer.swift in Sources */,
 				03699A252CCC231B00ECE61C /* Characters.swift in Sources */,
+				03699A322CCE2DF500ECE61C /* BackButton.swift in Sources */,
 				03CFB8D22CCAE1D300E0AE19 /* Character.swift in Sources */,
 				03CFB8BE2CCA61AF00E0AE19 /* CharactersViewModel.swift in Sources */,
+				03699A2F2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift in Sources */,
 				03699A172CCBA52E00ECE61C /* NetworkAPI.swift in Sources */,
 				03699A1D2CCBAD2A00ECE61C /* LocalizedString.swift in Sources */,
 				0300FAAE2CC97A230026C5DE /* HomeFlowCoordinator.swift in Sources */,

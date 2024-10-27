@@ -28,7 +28,7 @@ struct CharacterDetailsView: View {
                 
                 VStack(spacing: 0) {
                     
-                    HStack(alignment: .top) {
+                    HStack {
                         Text(viewModel.name)
                             .font(.title)
                             .fontWeight(.bold)
@@ -38,8 +38,8 @@ struct CharacterDetailsView: View {
                             .font(.subheadline)
                             .foregroundStyle(Color.black.swiftUIColor)
                             .lineLimit(1)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 4)
                             .background(Color.deepSkyBlue.swiftUIColor)
                             .clipShape(Capsule())
                     }
@@ -70,11 +70,14 @@ struct CharacterDetailsView: View {
                 }
                 .padding()
             }
+            .ignoresSafeArea(edges: .top)
         }
-        .ignoresSafeArea(edges: .top)
+        .overlay(alignment: .topLeading) {
+            BackButton()
+                .padding(.leading)
+        }
     }
 }
-
 
 #Preview {
     CharacterDetailsView(viewModel: RMCharacterDetailsViewModel(name: "Zephyr", image: URL(string: "https://picsum.photos/200"), species: "Elf", status: .alive, gender: .male, location: "Earth"))
