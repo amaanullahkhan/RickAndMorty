@@ -30,6 +30,11 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
         super.init(frame: .zero)
     }
     
+    @available(*, unavailable, message: "Loading it from a nib is not supported in favor of dependency injection.")
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func viewDidLoad() {
         viewModel.viewDidLoad()
         setupLayouts()
@@ -52,7 +57,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header: FilterHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
+        let header: FilterHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
         header.populate(with: $viewModel.statusFilter)
         return header
     }
@@ -62,7 +67,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: CharacterViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell: CharacterViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")
         cell.populate(with: viewModel.characterViewModels[indexPath.row])
         return cell
     }
@@ -73,13 +78,6 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         viewModel.willDisplayCharacterAt(index: indexPath.row)
-    }
-    
-    @available(*, unavailable,
-      message: "Loading it from a nib is not supported in favor of dependency injection."
-    )
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

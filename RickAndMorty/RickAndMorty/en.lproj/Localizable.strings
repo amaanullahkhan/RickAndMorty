@@ -12,3 +12,7 @@
 "alive" = "Alive";
 "dead" = "Dead";
 "unknown" = "Unknown";
+"male" = "Male";
+"female" = "Female";
+"genderless" = "Genderless";
+"unknown" = "Unknown";

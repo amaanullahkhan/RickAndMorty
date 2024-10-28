@@ -22,4 +22,8 @@ enum LocalizedString {
     static let alive = "alive".localised
     static let dead = "dead".localised
     static let unknown = "unknown".localised
+    
+    static let male = "male".localised
+    static let female = "female".localised
+    static let genderless = "genderless".localised
 }

@@ -21,9 +21,7 @@ class CharactersViewController<ViewModel: CharactersViewModel>: UIViewController
         super.init(nibName: nil, bundle: nil)
     }
     
-    @available(*, unavailable,
-      message: "Loading it from a nib is not supported in favor of dependency injection."
-    )
+    @available(*, unavailable, message: "Loading it from a nib is not supported in favor of dependency injection.")
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
