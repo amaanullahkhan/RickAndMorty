@@ -20,6 +20,7 @@ struct CharacterView: View {
             }
             .frame(width: 70, height: 70)
             .clipShape(RoundedRectangle(cornerRadius: 10))
+            .id(viewModel.image)
             
             VStack {
                 Text(viewModel.name)

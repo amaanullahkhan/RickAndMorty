@@ -12,16 +12,18 @@ struct CharacterDetailsView: View {
     var viewModel: CharacterDetailsViewModel
     
     var body: some View {
+        
         GeometryReader { proxy in
+            
             VStack {
                 
                 AsyncImage(url: viewModel.image, content: { image in
                     image
-                    .resizable()
+                        .resizable()
                 }, placeholder: {
                     Color.kimberly.swiftUIColor
                 })
-                .frame(height: proxy.size.height/2)
+                .frame(height: proxy.size.height * 0.5)
                 .clipShape(
                     RoundedRectangle(cornerRadius: 50)
                 )
@@ -29,6 +31,7 @@ struct CharacterDetailsView: View {
                 VStack(spacing: 0) {
                     
                     HStack {
+                        
                         Text(viewModel.name)
                             .font(.title)
                             .fontWeight(.bold)
@@ -45,36 +48,47 @@ struct CharacterDetailsView: View {
                     }
                     
                     HStack(spacing: 12) {
+                        
                         Text(viewModel.species)
                             .foregroundStyle(Color.jacarta.swiftUIColor)
+                        
                         Circle()
                             .frame(width: 4, height: 4)
+                        
                         Text(viewModel.gender.title)
                             .foregroundStyle(Color.kimberly.swiftUIColor)
+                        
                         Spacer()
                     }
                     
                     HStack {
-                        Text("Location : ")
+                        
+                        Text(viewModel.locationLabel)
                             .lineLimit(1)
                             .fontWeight(.semibold)
                             .foregroundStyle(Color.black.swiftUIColor)
+                        
                         Text(viewModel.location)
                             .fontWeight(.medium)
                             .lineLimit(2)
                             .foregroundStyle(Color.jacarta.swiftUIColor)
+                        
                         Spacer()
                     }
                     .padding(.top)
                     
                 }
                 .padding()
+                
             }
             .ignoresSafeArea(edges: .top)
+            
         }
         .overlay(alignment: .topLeading) {
+            
             BackButton()
                 .padding(.leading)
+            
         }
     }
 }
