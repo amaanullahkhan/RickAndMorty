@@ -8,6 +8,7 @@
 import Foundation
 
 extension Gender {
+    
     var title: String {
         switch self {
         case .female:
