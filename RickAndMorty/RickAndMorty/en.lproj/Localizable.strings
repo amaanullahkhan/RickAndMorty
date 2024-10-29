@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  RickAndMorty
+
+  Created by Amaan Ullah on 26/10/2024.
+  
+*/
+
+"characters" = "Characters";
+"retry" = "Retry";
+"something_went_wrong" = "Something went wrong";
+"alive" = "Alive";
+"dead" = "Dead";
+"unknown" = "Unknown";
+"male" = "Male";
+"female" = "Female";
+"genderless" = "Genderless";
+"unknown" = "Unknown";
