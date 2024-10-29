@@ -13,17 +13,4 @@ enum Gender: String, Decodable {
     case male = "Male"
     case genderless = "Genderless"
     case unknown
-    
-    var title: String {
-        switch self {
-        case .female:
-            LocalizedString.female
-        case .male:
-            LocalizedString.male
-        case .genderless:
-            LocalizedString.genderless
-        case .unknown:
-            LocalizedString.unknown
-        }
-    }
 }

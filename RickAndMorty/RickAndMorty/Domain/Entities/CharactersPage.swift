@@ -15,9 +15,4 @@ struct CharactersPage: Decodable {
     struct Info: Decodable {
         let next: URL?
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case characters = "results"
-        case pageInfo = "info"
-    }
 }

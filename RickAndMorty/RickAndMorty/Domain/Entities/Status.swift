@@ -7,24 +7,10 @@
 
 import Foundation
 
-enum Status: String, CaseIterable, Identifiable, Decodable {
+enum Status: String, CaseIterable, Decodable {
     
     case alive = "Alive"
     case dead = "Dead"
     case unknown
     
-    var id: String {
-        rawValue
-    }
-    
-    var title: String {
-        switch self {
-        case .alive:
-            LocalizedString.alive   
-        case .dead:
-            LocalizedString.dead
-        case .unknown:
-            LocalizedString.unknown
-        }
-    }
 }
