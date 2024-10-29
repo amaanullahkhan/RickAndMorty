@@ -24,12 +24,8 @@ class AppFlowCoordinator {
     }
     
     private func setAppearance() {
-        
         let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.tintColor = Color.black.uiColor
         navBarAppearance.shadowImage = UIImage()
-        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.black.uiColor]
-        navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.black.uiColor]
         navBarAppearance.prefersLargeTitles = true
     }
     

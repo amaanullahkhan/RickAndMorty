@@ -18,7 +18,7 @@ struct BackButton: View {
         }, label: {
             Image(systemName: "arrow.backward.circle.fill")
                 .resizable()
-                .tint(Color.white.swiftUIColor)
+                .tint(.white)
                 .frame(width: 40, height: 40)
                 .shadow(radius: 10)
         })

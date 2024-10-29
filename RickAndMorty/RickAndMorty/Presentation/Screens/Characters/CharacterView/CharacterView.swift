@@ -16,7 +16,7 @@ struct CharacterView: View {
             AsyncImage(url: viewModel.image) { image in
                 image.resizable()
             } placeholder: {
-                Color.kimberly.swiftUIColor
+                Color.kimberly
             }
             .frame(width: 70, height: 70)
             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -26,13 +26,14 @@ struct CharacterView: View {
                 Text(viewModel.name)
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color.black.swiftUIColor)
+                    .foregroundStyle(viewModel.status == .unknown ? Color.primary : .black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(1)
+                
                 Text(viewModel.species)
                     .font(.subheadline)
                     .fontWeight(.medium)
-                    .foregroundStyle(Color.jacarta.swiftUIColor)
+                    .foregroundStyle(.jacarta)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(1)
             }
@@ -42,7 +43,7 @@ struct CharacterView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.selago.swiftUIColor, lineWidth: getStatusStrokeLine())
+                .stroke(.selago, lineWidth: getStatusStrokeLine())
                 .fill(getStatusColor())
         )
         
@@ -60,13 +61,14 @@ struct CharacterView: View {
     private func getStatusColor() -> some ShapeStyle {
         switch viewModel.status {
         case .alive:
-            return Color.lavender.swiftUIColor
+            return .lavender
         case .dead:
-            return Color.mistyRose.swiftUIColor
+            return .mistyRose
         case .unknown:
-            return Color.clear.swiftUIColor
+            return .clear
         }
     }
+    
 }
 
 struct CharacterViewPreview: PreviewProvider {

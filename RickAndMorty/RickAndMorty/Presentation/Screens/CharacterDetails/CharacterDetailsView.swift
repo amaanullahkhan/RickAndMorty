@@ -21,7 +21,7 @@ struct CharacterDetailsView: View {
                     image
                         .resizable()
                 }, placeholder: {
-                    Color.kimberly.swiftUIColor
+                    Color.kimberly
                 })
                 .frame(height: proxy.size.height * 0.5)
                 .clipShape(
@@ -39,24 +39,24 @@ struct CharacterDetailsView: View {
                         
                         Text(viewModel.status.title)
                             .font(.subheadline)
-                            .foregroundStyle(Color.black.swiftUIColor)
+                            .foregroundStyle(.black)
                             .lineLimit(1)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 4)
-                            .background(Color.deepSkyBlue.swiftUIColor)
+                            .background(.deepSkyBlue)
                             .clipShape(Capsule())
                     }
                     
                     HStack(spacing: 12) {
                         
                         Text(viewModel.species)
-                            .foregroundStyle(Color.jacarta.swiftUIColor)
+                            .foregroundStyle(.jacarta)
                         
                         Circle()
                             .frame(width: 4, height: 4)
                         
                         Text(viewModel.gender.title)
-                            .foregroundStyle(Color.kimberly.swiftUIColor)
+                            .foregroundStyle(.kimberly)
                         
                         Spacer()
                     }
@@ -66,12 +66,11 @@ struct CharacterDetailsView: View {
                         Text(viewModel.locationLabel)
                             .lineLimit(1)
                             .fontWeight(.semibold)
-                            .foregroundStyle(Color.black.swiftUIColor)
                         
                         Text(viewModel.location)
                             .fontWeight(.medium)
                             .lineLimit(2)
-                            .foregroundStyle(Color.jacarta.swiftUIColor)
+                            .foregroundStyle(.jacarta)
                         
                         Spacer()
                     }

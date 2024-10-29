@@ -31,7 +31,6 @@
 		03699A252CCC231B00ECE61C /* CharactersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A242CCC231B00ECE61C /* CharactersPage.swift */; };
 		03699A282CCCD77E00ECE61C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03699A262CCCD77E00ECE61C /* Localizable.strings */; };
 		03699A2A2CCCDAEC00ECE61C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03699A292CCCDAEC00ECE61C /* Colors.xcassets */; };
-		03699A2C2CCCDE6900ECE61C /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A2B2CCCDE6900ECE61C /* ColorConstant.swift */; };
 		03699A2F2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A2E2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift */; };
 		03699A322CCE2DF500ECE61C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A312CCE2DF500ECE61C /* BackButton.swift */; };
 		03699A342CCF989C00ECE61C /* UIHostingController+NavBarHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03699A332CCF989C00ECE61C /* UIHostingController+NavBarHidden.swift */; };
@@ -102,7 +101,6 @@
 		03699A242CCC231B00ECE61C /* CharactersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPage.swift; sourceTree = "<group>"; };
 		03699A272CCCD77E00ECE61C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		03699A292CCCDAEC00ECE61C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		03699A2B2CCCDE6900ECE61C /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
 		03699A2E2CCD94D300ECE61C /* UINavigationController+GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+GestureRecognizer.swift"; sourceTree = "<group>"; };
 		03699A312CCE2DF500ECE61C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		03699A332CCF989C00ECE61C /* UIHostingController+NavBarHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIHostingController+NavBarHidden.swift"; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				03699A1C2CCBAD2A00ECE61C /* LocalizedString.swift */,
-				03699A2B2CCCDE6900ECE61C /* ColorConstant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -539,7 +536,6 @@
 				03699A232CCBE28700ECE61C /* FilterView.swift in Sources */,
 				03699A162CCBA52E00ECE61C /* NetworkRequest.swift in Sources */,
 				03699A402CCFDDC900ECE61C /* UITableView+DequeuCellAndHeader.swift in Sources */,
-				03699A2C2CCCDE6900ECE61C /* ColorConstant.swift in Sources */,
 				03CFB8C62CCA626C00E0AE19 /* CharacterDetailsViewModel.swift in Sources */,
 				03699A382CCFA8C200ECE61C /* RMCharacterViewModel.swift in Sources */,
 				03699A342CCF989C00ECE61C /* UIHostingController+NavBarHidden.swift in Sources */,
