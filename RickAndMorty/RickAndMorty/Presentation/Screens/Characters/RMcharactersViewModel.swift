@@ -17,6 +17,7 @@ class RMCharactersViewModel: CharactersViewModel {
     var characterViewModels: [RMCharacterViewModel] = []
     var output: (CharactersViewModelOutput) -> Void = { _ in }
     
+    private let nextPageFetchBuffer = 5
     private let useCase: GetCharactersUseCase
     private let router: CharactersViewModelRouter
     private var cancellables = Set<AnyCancellable>()
@@ -26,20 +27,20 @@ class RMCharactersViewModel: CharactersViewModel {
         self.useCase = useCase
     }
     
+    func viewDidLoad() {
+        getCharacters(status: statusFilter)
+        subscribeToFilterChange()
+    }
+    
     func didSelectCharacterAt(index: Int) {
         router.showCharacterDetailsScreen(for: characterViewModels[index].character)
     }
     
     func willDisplayCharacterAt(index: Int) {
-        guard index == characterViewModels.count - 5 else {
+        guard index == characterViewModels.count - nextPageFetchBuffer else {
             return
         }
         getCharactersNextPage()
-    }
-    
-    func viewDidLoad() {
-        getCharacters(status: statusFilter)
-        subscribeToFilterChange()
     }
     
     private func subscribeToFilterChange() {
@@ -56,7 +57,6 @@ class RMCharactersViewModel: CharactersViewModel {
                 nextPage = charactersPage.pageInfo.next
                 characterViewModels = charactersPage.characters.map { RMCharacterViewModel(character: $0) }
                 output(.loaded)
-                
             } catch {
                 print(error)
             }

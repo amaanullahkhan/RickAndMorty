@@ -331,9 +331,9 @@
 		03CFB8B82CCA60B000E0AE19 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				03699A302CCE2DEB00ECE61C /* Controls */,
 				03CFB8BF2CCA61E300E0AE19 /* Characters */,
 				03CFB8C02CCA61FC00E0AE19 /* CharacterDetails */,
+				03699A302CCE2DEB00ECE61C /* Controls */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

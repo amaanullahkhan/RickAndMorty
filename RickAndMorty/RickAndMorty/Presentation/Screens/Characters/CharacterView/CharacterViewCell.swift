@@ -11,6 +11,7 @@ import SwiftUI
 class CharacterViewCell: UITableViewCell {
     
     func populate(with viewModel: CharacterViewModel) {
+        selectionStyle = .none
         contentConfiguration = UIHostingConfiguration {
             CharacterView(viewModel: viewModel)
         }

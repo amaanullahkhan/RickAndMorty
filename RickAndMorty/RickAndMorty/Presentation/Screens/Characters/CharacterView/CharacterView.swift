@@ -10,7 +10,7 @@ import SwiftUI
 struct CharacterView: View {
     
     let viewModel: CharacterViewModel
-    
+        
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             AsyncImage(url: viewModel.image) { image in
