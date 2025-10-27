@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 @MainActor
 protocol CharactersViewModel: ObservableObject {
@@ -19,7 +20,7 @@ protocol CharactersViewModel: ObservableObject {
     var output: (CharactersViewModelOutput) -> Void { get set }
     
     func viewDidLoad()
-    func didSelectCharacterAt(index: Int)
+    func didSelectCharacterAt(index: Int, cell: UITableViewCell?)
     func willDisplayCharacterAt(index: Int)
 
 }
@@ -30,5 +31,5 @@ enum CharactersViewModelOutput {
 }
 
 protocol CharactersViewModelRouter {
-    func showCharacterDetailsScreen(for character: Character)
+    func showCharacterDetailsScreen(for character: Character, cell: UITableViewCell?)
 }

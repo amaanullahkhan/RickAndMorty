@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class RMCharactersViewModel: CharactersViewModel {
     
@@ -32,8 +33,8 @@ class RMCharactersViewModel: CharactersViewModel {
         subscribeToFilterChange()
     }
     
-    func didSelectCharacterAt(index: Int) {
-        router.showCharacterDetailsScreen(for: characterViewModels[index].character)
+    func didSelectCharacterAt(index: Int, cell: UITableViewCell?) {
+        router.showCharacterDetailsScreen(for: characterViewModels[index].character, cell: cell)
     }
     
     func willDisplayCharacterAt(index: Int) {

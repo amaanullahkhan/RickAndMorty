@@ -73,7 +73,7 @@ class CharactersView<ViewModel: CharactersViewModel>: UIView, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectCharacterAt(index: indexPath.row)
+        viewModel.didSelectCharacterAt(index: indexPath.row, cell: tableView.cellForRow(at: indexPath))
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -41,8 +41,11 @@ class HomeFlowCoordinator {
 }
 
 extension HomeFlowCoordinator: CharactersViewModelRouter {
-    func showCharacterDetailsScreen(for character: Character) {
+    func showCharacterDetailsScreen(for character: Character, cell: UITableViewCell?) {
         let viewController = dependencies.makeCharacterDetailsScreen(character: character)
+        viewController.preferredTransition = .zoom(sourceViewProvider: { context in
+            return cell?.contentView
+        })
         navigationController.pushViewController(viewController, animated: true)
     }
 }
