@@ -16,11 +16,9 @@ struct BackButton: View {
         Button(action: {
             dismiss()
         }, label: {
-            Image(systemName: "arrow.backward.circle.fill")
-                .resizable()
-                .tint(.white)
-                .frame(width: 40, height: 40)
-                .shadow(radius: 10)
+            Image(systemName: "arrow.backward")
+                .padding()
+                .glassEffect(in: .circle)
         })
     }
 }
