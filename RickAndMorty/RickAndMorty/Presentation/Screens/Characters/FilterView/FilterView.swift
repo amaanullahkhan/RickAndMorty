@@ -28,8 +28,11 @@ struct FilterView: View {
             .font(.subheadline)
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
-            .glassEffect(.regular.tint(selectedStatus == status ? .black : .white))
-            .glassEffect(.regular.interactive())
+            .glassEffect(
+                .regular
+                    .tint(selectedStatus == status ? .black : .white)
+                    .interactive()
+            )
     }
 }
 
